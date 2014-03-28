@@ -5,8 +5,7 @@ class Category(models.Model):
 	name = models.CharField(max_length=100)
 	description = models.CharField(max_length=240)
 
-
-
+# Thing: thing to be reviewed
 class Thing(models.Model):
 	name = models.CharField(max_length=140)
 	description = models.CharField(max_length=500)
@@ -19,7 +18,7 @@ class Review(models.Model):
 	description = models.CharField(max_length=240)
 	thing = models.ForeignKey(Thing)
 	dateCreated = models.DateTimeField('date published')
-	
+
 # Critic: person that make review
 class Critic(models.Model):
 	username = models.CharField(max_length=30)

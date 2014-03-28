@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Dilo</title>
+	<style type="text/css">
+		.container{
+			display: block;
+		}
+		.right-bar{
+			display: inline-block;
+			position: absolute;
+
+		}
+		.things{
+			display: inline-block;
+			background-color: #F3F3F3;
+			position: relative;
+			float: right;
+		}
+		.thing{
+			border-style: solid;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Bienvenido a DILO</h1>
+
+	<div class="container">
+		<div class="right-bar">
+			<ul type="none">
+				{% for category in categories %}
+				<li><a href="/category/{{category.id}}">{{category.name}}</a></li>
+				<p>{{category.description}}</p>
+				{% endfor %}
+			</ul>	
+		</div>
+
+		<div class="things">
+			{% for thing in things %}
+				<div class="thing">
+					<h2> {{thing.name}} <a href="/category/{{thing.category.id}}">*{{thing.category.name}}</a></h2>
+					<div class="desc">{{thing.description}}</div>
+					<p>{{thing.dateCreated}}</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+	
+	
+	
+</body>
+</html>
